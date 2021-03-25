@@ -1,7 +1,25 @@
-answer = 5
-print("Please guess number between 1 and 10: ")
-guess = int(input())
+"""The infinite guessing game"""
+import random
 
+highest = 10
+answer = random.randint(1,highest)
+print(answer) # TODO: Remove after testing
+print("Please guess number between 1 and {}: ".format(highest))
+guess = int(input())
+"""The infinite guess game :D"""   
+if guess == answer:
+    print("You have got the correct answer, boiiiii")
+while guess != answer:
+    if guess < answer:
+        print("Please guess higher")
+    elif guess > answer:
+        print("Please guess lower")
+    guess = int(input())
+    if guess == answer:
+        print("Good job Rambo")
+    elif guess == 0:
+        print("Game  over")
+        break
 
 # if guess != answer:
 #     if guess < answer:
@@ -16,15 +34,6 @@ guess = int(input())
 # else:
 #     print("You got it first time!")
  
-"""The infinite guess game :D"""   
-while guess != answer:
-    if guess < answer:
-        print("Please guess higher")
-    elif guess > answer:
-        print("Please guess lower")
-    guess = int(input())
-if guess == answer:
-    print("You have got the correct answer, boiiiii")
     
 # Given challenge
 # if guess == answer:
