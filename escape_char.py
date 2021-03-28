@@ -1,5 +1,5 @@
-splitString = "THis string has been\nsplit over\nseveral\nlines"
-print(splitString)
+split_String = "THis string has been\nsplit over\nseveral\nlines"
+print(split_String)
 tabbedString = "1\t2\t3\t4\t5"
 print(tabbedString)
 
@@ -17,3 +17,4 @@ print(anotherSplitString)
 
 print("C:\\Users\\timbuchalka\\notes.txt")
 print(r"C:\Users\timbuchalka\notes.txt")
+
