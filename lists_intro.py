@@ -4,12 +4,13 @@ computer_parts = ["computer",
                   "mouse",
                   "mouse mat"
                   ]
-for part in computer_parts:
-    print(part)
-    
-print()
-print(computer_parts[2])
+print(computer_parts)
 
-print(computer_parts[0:3])
-print(computer_parts[-1])
- 
+#computer_parts[3] = "trackball"
+print(computer_parts[3:])
+
+computer_parts[3:] = ["trackball"]
+# what is gonna happen is that the content of the iterable is 
+# going to be added to the list 
+print(computer_parts)
+
