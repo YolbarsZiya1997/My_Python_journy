@@ -24,7 +24,7 @@ while current_choice != "0":
     
     
     elif current_choice in number_of_choices:
-        index = int(current_choice)-1
+        index = int(current_choice)
         chosen_goods = shopping_list[index]
         bill.append(chosen_goods)
         
