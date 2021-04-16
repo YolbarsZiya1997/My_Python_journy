@@ -19,12 +19,12 @@ for meal in menu:
     for index in range(len(meal)-1,-1,-1):
         if meal[index]== "spam":
             del meal[index]
-    print(meal)
+    print(", ".join(meal))
 
 # for meal in menu:
 #     for item in meal:
 #         if item != "spam":
-#             print(item)
+#             print(item, end=", ")
 #     print()
         
             
