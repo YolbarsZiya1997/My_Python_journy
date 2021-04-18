@@ -1,8 +1,8 @@
-a = b = c = d = e = f = 42
-print(c)
+# a = b = c = d = e = f = 42
+# print(c)
 
-x,y,z = 1,2,76
-print(x,y,z)
+# x,y,z = 1,2,76
+# print(x,y,z)
 
 print("Unpacking a tuple")
 
