@@ -38,7 +38,7 @@ albums = [
      ),
 ]
 
-SONGS_LIST = 3
+SONGS_LIST_INDEX = 3
 SONG_TITLE = 1
 
 while True:
@@ -48,7 +48,7 @@ while True:
 
     choice = int(input())
     if 1 <= choice <= len(albums):
-        songs_list = albums[choice - 1][SONGS_LIST]
+        songs_list = albums[choice - 1][SONGS_LIST_INDEX]
     else:
         break
 
