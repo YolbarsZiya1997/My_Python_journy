@@ -8,6 +8,8 @@ while True:
     for index,(title, artist, year, songs) in enumerate(albums):   # the enumerate functiong gives error withou the parenthethesies
         print("{}: {}".format(index + 1, title))
     choice = int(input())
+    if choice == 911:
+        break
     while True:
         if 1 <= choice <= len(albums):
             songs_list = albums[choice - 1][SONGS_LIST_INDEX]
@@ -30,7 +32,7 @@ while True:
         
     print("Playing {}".format(title))
     print("=" * 40)
-    break
+
     
         
 
