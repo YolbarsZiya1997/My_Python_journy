@@ -18,10 +18,10 @@ while True:
     choice = int(input())
     if 1 <= choice <= len(goods):
         if goods[choice-1] in check:
-            print("Removing {} from the bill".format(goods[choice-1][ITEMS],goods[choice-1][PRICES]))
+            print("Removing {} from the bill, it's {} £".format(goods[choice-1][ITEMS],goods[choice-1][PRICES]))
             check.remove(goods[choice-1])
         else:
-            print("Adding {} to the bill, it's {}".format(goods[choice-1][ITEMS],goods[choice-1][PRICES]))
+            print("Adding {} to the bill, it's {} £".format(goods[choice-1][ITEMS],goods[choice-1][PRICES]))
             check.append(goods[choice-1])
         print("Your list now consists {}".format(check))
         
@@ -35,8 +35,8 @@ while True:
         total = 0
         for indexs, (item,price) in enumerate(check):
             total += price # same as total = total + price
-        print("Totall is {} dollar".format(total))
-        print(check)
+        print("Totall is {} £".format(total))
+        # print(check)
         break
         
         
