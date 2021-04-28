@@ -1,4 +1,4 @@
-def multiply(x, y):
+def multiply(x: float, y: float) -> float:
     """
     Multiply the two given parameters x and y
     param: x , y 
@@ -8,7 +8,7 @@ def multiply(x, y):
     return result
 
 
-def is_palindrome(string):
+def is_palindrome(string:str) -> bool:
     # backwards = string[::-1]
     # return backwards == string
     """
@@ -19,7 +19,7 @@ def is_palindrome(string):
     return string[::-1].casefold() == string.casefold()
 
 
-def palindrome_sentence(sentence):
+def palindrome_sentence(sentence: str) -> bool:
     """
     Identifies a sentence to see if it is palindrome or not a
     needs the is_palindrome function to work
