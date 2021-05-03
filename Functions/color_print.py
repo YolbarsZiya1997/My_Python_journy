@@ -13,7 +13,7 @@ BOLD = '\u001b[1m'
 UNDERLINE = '\u001b[4m'
 REVERSE = '\u001b[7m'
 
-def colour_print(text: str, effect: str,second_effect) -> None:
+def colour_print(text: str, *effects: str) -> None:
     """
     Print `text` using the ANSI sequences to change color, etc
 
@@ -22,8 +22,8 @@ def colour_print(text: str, effect: str,second_effect) -> None:
         effect (str): The effect we want. One fo the constants
         defined at the start of this module
     """
-    output_string = "{0}{1}{2}{3}".format(effect,second_effect, text, RESET)
+    effect_string = "".join(effects)
+    output_string = "{0}{1}{2}".format(effect_string, text, RESET)
     print(output_string)
     
-colour_print("Hello,Red", RED,BOLD)
-colour_print("I am blue", BLUE,UNDERLINE)
+colour_print("Hello,Red", YELLOW,BOLD,UNDERLINE,REVERSE)
