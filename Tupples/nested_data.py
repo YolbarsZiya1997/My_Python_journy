@@ -56,13 +56,13 @@ albums = [
 
 # mayhem = albums[3][3][2][1]
 # print(mayhem)
-# print(albums[3])
-# print()
-# print(albums[3][3])
-# print()
-# print(albums[3][3][2])
-# print()
-# print(albums[3][3][2][1])
+print(albums[3])
+print()
+print(albums[3][3])
+print()
+print(albums[3][3][2])
+print()
+print(albums[3][3][2][1])
 
 # for the challenge
 
