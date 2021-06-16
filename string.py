@@ -17,7 +17,7 @@ print(type(age))
 
 age_in_words = '2 years'
 
-print(name + f"is {age} years old") #The f-string example
+print(name + f" is {age} years old") #The f-string example
 print(type(age))
 
 print(f"Pi is approximately {22 / 7:12.50f}")
