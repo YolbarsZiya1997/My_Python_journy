@@ -10,4 +10,5 @@ def sum_numbers(*numbers: float) -> float:
         summation += i
     return summation
 
+print(sum_numbers(6,7,9))
 
