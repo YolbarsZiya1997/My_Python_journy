@@ -1,0 +1,35 @@
+recipes_tuple = {
+    "Chicken and chips": [
+        ("chicken", 100),
+        ("potatoes", 3),
+        ("salt", 1),
+        ("malt vinegar", 5)
+        ],
+}
+
+recipes_dict = {
+    "Chicken and chips": {
+        "chicken": 100,
+        "potatoes": 3,
+        "salt": 1,
+        "malt vinegar": 5,
+    },
+}
+
+# using tuples
+for recipes, ingredients in recipes_tuple.items():
+    print(f"Ingredients for {recipes}")
+    for ingredient, quantity in ingredients: # ingrredients is a tuple
+        print(ingredient, quantity, sep=", ")
+
+print()
+
+# using a dictionary
+for recipe, ingredients in recipes_dict.items():
+    print(f"Ingredients for {recipe}")
+    for ingredient, quantity in ingredients.items():
+        print(ingredient, quantity, sep=", ")        
+        
+        
+        
+    

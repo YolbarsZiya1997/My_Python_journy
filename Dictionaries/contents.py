@@ -4,13 +4,13 @@ pantry = {
     "cumin" : 24,
     "paprika" : 18,
     "chilli powder" : 7,
-    "yogur" : 300,
+    "yogurt" : 300,
     "oil" : 450,
     "onion" : 5,
     "garlic" : 9,
     "ginger" : 2,
     "tomato puree" : 125,
-    "almond" : 75,
+    "almonds" : 75,
     "rice" : 500,
     "coriander" : 20,
     "lime" : 3,
@@ -60,3 +60,10 @@ recipes = {
         "spoon",
     ],    
 }
+
+# for name, ingrediant in recipes.items():
+#     print(name, ingrediant)
+
+# recipes["Spam a la tin"] = ["it sucks"]
+# for name, ingrediant in recipes.items():
+#     print(name, ingrediant)

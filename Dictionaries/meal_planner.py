@@ -17,3 +17,15 @@ while True:
     if choice == "0":
         break
         
+    elif choice in display_dict:
+        selected_items = display_dict[choice]
+        print(f"You have selected {selected_items}")
+        print("Checking ingredients...\nThey are: ")
+        ingredients = recipes[selected_items]
+        print(ingredients)
+        for food_item in ingredients:
+            if food_item in pantry:
+                print(f"\t{food_item} OK")
+            else:
+                print(f"\tYou don't have a necessary ingredient: {food_item}")
+                
