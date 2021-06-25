@@ -1,6 +1,14 @@
 from contents import recipes
 
 def my_deepcopy(d: dict) -> dict:
+    """Deepcopies the dictionary you input
+
+    Args:
+        d (dict): the dictionary that is going to be copied
+
+    Returns:
+        dict: copied dictionary
+    """
     copied_dict = {}
     for keys, values in d.items():
         new_values = values.copy() # this is the line that makes the difference
