@@ -23,7 +23,7 @@
 choice = "-"
 while choice != "0":
     # choice = input()
-    if choice in "12345":
+    if choice in set('12345'):
         print("You chose {}".format(choice))
     else:
         print("Please choose your option from the list below")
