@@ -1,18 +1,3 @@
-# myList = ["a", "b", "c", "d"]
-# letters = "abcdefghijklmnopqrstuvwxyz"
-# numbers = "123456789"
-
-
-# newString = ""
-# Cumbersome way of doing it 
-# for c in myList:
-#     newString += c + ", "
-    
-# for c in myList:
-#     newString = " mississippi ".join(numbers)
-# print(newString)
-# ***** The Basic Adventure Game ******
-
 locations = {
     0: "You are sitting in front of a computer learning Python",
     1: "You are standing at the end of a road before a small brick building",
@@ -33,17 +18,14 @@ exits = [
 
 loc = 1
 while True:
-    available_exits = ", ".join(exits[loc].keys())
-
     print(locations[loc])
+    availble_exits = ", ".join(exits[loc].keys())
     
     if loc == 0:
         break
     
-    directions = input("Availabel exits are " + available_exits + " ").upper()
-    print()
-    if directions in exits[loc]:
-        loc = exits[loc][directions]
+    direction = input("Available exits are " + availble_exits + " ").upper()
+    if direction in exits[loc]:
+        loc = exits[loc][direction]
     else:
-        print("You cannot go in that direction")
-        
+        print("Yoo mate, you can't go there !")
