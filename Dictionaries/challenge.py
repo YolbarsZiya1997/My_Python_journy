@@ -38,12 +38,12 @@ words = {
 loc = 1
 while True:
     print(locations[loc])
-    availble_exits = ", ".join(exits[loc].keys())
+    available_exits = ", ".join(exits[loc].keys())
     
     if loc == 0:
         break
     
-    direction = input("Available exits are " + availble_exits + " ").upper()
+    direction = input("Available exits are " + available_exits + " ").upper()
     if direction in exits[loc]:
         loc = exits[loc][direction]
     elif direction in words.keys():
