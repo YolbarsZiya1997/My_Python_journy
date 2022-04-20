@@ -1,9 +1,9 @@
 class Car:
     """ A simple attempt to represent a car"""
     
-    def __init__(self, make, model, year):
+    def __init__(self, make, model, year):   # Methodes
         """ Initialize attributes to describe a car"""
-        self.make = make
+        self.make = make                # Attributes
         self.model = model
         self.year = year
         self.odometer_reading = 0       #default value for a car's mileage
@@ -50,5 +50,5 @@ print(my_used_car.get_descriptive_name())
 my_used_car.update_odometer(23_500)
 my_used_car.read_odometer()
 
-my_used_car.increment_odometer(100)
+my_used_car.increment_odometer(100)         #instances
 my_used_car.read_odometer()
