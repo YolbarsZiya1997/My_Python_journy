@@ -8,4 +8,5 @@ if letter in parrot:
     # Remember that it is case sensitive
 else:
     print("I don't need that letter")
-    
+
+range
