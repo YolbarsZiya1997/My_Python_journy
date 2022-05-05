@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="112c73be-1d3b-4269-89ce-54c56bd488ad" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/classes/my_car.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/my_cars.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/my_electric_car.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/car.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/car.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/electric_car.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/electric_car.py" afterDir="false" />
-    </list>
+    <list default="true" id="112c73be-1d3b-4269-89ce-54c56bd488ad" name="Changes" comment="update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -363,7 +356,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651756582671</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update">
+      <created>1651758887954</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1651758887954</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
