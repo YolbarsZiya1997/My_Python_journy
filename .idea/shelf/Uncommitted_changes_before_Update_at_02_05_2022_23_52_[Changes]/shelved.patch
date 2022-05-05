@@ -1,0 +1,480 @@
+Index: Exercises/electric_field.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import numpy as np\r\nimport matplotlib.pyplot as plt\r\nfrom math import sqrt\r\nfrom copy import deepcopy\r\n\r\ndef makefield(xs, ys):\r\n    qtopos = {1: (-1,0),\r\n             -1: (1,0),\r\n             }\r\n    n = len(xs)\r\n    Exs = [[0. for k in range(n)] for j in range(n)]\r\n    Eys = deepcopy(Exs)\r\n    for j, x in enumerate(xs):\r\n        for k, y in enumerate(ys):\r\n            for q, pos in qtopos.items():\r\n                posx, posy = pos\r\n                R = sqrt((x - posx)**2 + (y - posy)**2)\r\n                Exs[k][j] += q*(x - posx)/R**3\r\n                Eys[k][j] += q*(y - posy)/R**3\r\n    return Exs, Eys\r\n\r\n\r\ndef plotfield(boxl,n):\r\n    xs = [-boxl + i*2*boxl/(n-1) for i in range(n)]\r\n    ys = xs[:]\r\n    Exs, Eys = makefield(xs, ys)\r\n    xs=np.array(xs); ys=np.array(ys)\r\n    Exs=np.array(Exs); Eys=np.array(Eys)\r\n    plt.streamplot(xs, ys, Exs, Eys, density=1.5, color='m')\r\n    plt.xlabel('$x$')\r\n    plt.ylabel('$y$')\r\n    plt.show()\r\n    \r\n\r\nplotfield(6.,69)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Exercises/electric_field.py b/Exercises/electric_field.py
+--- a/Exercises/electric_field.py	(revision 98b78aa80851fc72c65655f890debb9cd6e2c629)
++++ b/Exercises/electric_field.py	(date 1651238861997)
+@@ -1,12 +1,13 @@
+ import numpy as np
+ import matplotlib.pyplot as plt
+-from math import sqrt
+-from copy import deepcopy
++from math import *
++from copy import *
++
+ 
+ def makefield(xs, ys):
+-    qtopos = {1: (-1,0),
+-             -1: (1,0),
+-             }
++    qtopos = {1: (-1, 0),
++              -1: (1, 0),
++              }
+     n = len(xs)
+     Exs = [[0. for k in range(n)] for j in range(n)]
+     Eys = deepcopy(Exs)
+@@ -14,14 +15,14 @@
+         for k, y in enumerate(ys):
+             for q, pos in qtopos.items():
+                 posx, posy = pos
+-                R = sqrt((x - posx)**2 + (y - posy)**2)
+-                Exs[k][j] += q*(x - posx)/R**3
+-                Eys[k][j] += q*(y - posy)/R**3
++                R = sqrt((x - posx) ** 2 + (y - posy) ** 2)
++                Exs[k][j] += q * (x - posx) / R ** 3
++                Eys[k][j] += q * (y - posy) / R ** 3
+     return Exs, Eys
+ 
+ 
+-def plotfield(boxl,n):
+-    xs = [-boxl + i*2*boxl/(n-1) for i in range(n)]
++def plotfield(boxl, n):
++    xs = [-boxl + i * 2 * boxl / (n - 1) for i in range(n)]
+     ys = xs[:]
+     Exs, Eys = makefield(xs, ys)
+     xs=np.array(xs); ys=np.array(ys)
+@@ -30,6 +31,6 @@
+     plt.xlabel('$x$')
+     plt.ylabel('$y$')
+     plt.show()
+-    
++
+ 
+-plotfield(6.,69)
+\ No newline at end of file
++plotfield(6., 69)
+Index: string.py
+===================================================================
+diff --git a/string.py b/string.py
+deleted file mode 100644
+--- a/string.py	(revision 98b78aa80851fc72c65655f890debb9cd6e2c629)
++++ /dev/null	(revision 98b78aa80851fc72c65655f890debb9cd6e2c629)
+@@ -1,26 +0,0 @@
+-print('Today is a good day to learn python')
+-print('Python is fun')
+-print("python's string are easy to use")
+-print('We can even include "quotes" in strings')
+-print("hello"+" world")
+-greeting = "Hello"
+-name = 'Ziya'
+-print(greeting + name)
+-# if we want a space we can add that too 
+-print(greeting + " " + name)
+-
+-age = 24.0
+-print(age)
+-
+-print(type(greeting))
+-print(type(age))
+-
+-age_in_words = '2 years'
+-
+-print(name + f" is {age} years old") #The f-string example
+-print(type(age))
+-
+-print(f"Pi is approximately {22 / 7:12.50f}")
+-pi = 22/7
+-print(f"Pi is approximately {pi:12.50f}")
+- 
+\ No newline at end of file
+Index: Tupples/jukebox_menu.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from nested_data import albums\r\n\r\nSONGS_LIST_INDEX = 3\r\nSONG_TITLE_INDEX = 1\r\nwhile True:\r\n# unpacking in one step\r\n    print(\"Please choose your album(invalid choice exits): \")\r\n    for index,(title, artist, year, songs) in enumerate(albums):   # the enumerate functiong gives error withou the parenthethesies\r\n        print(\"{}: {}\".format(index + 1, title))\r\n    choice = int(input())\r\n    if choice == 911:\r\n        break\r\n    while True:\r\n        if 1 <= choice <= len(albums):\r\n            songs_list = albums[choice - 1][SONGS_LIST_INDEX]\r\n            break\r\n        else: \r\n            print(\"Your choice is out of range, please choose carefully\")\r\n            choice = int(input())\r\n    print(\"PLease choose your song: \")\r\n    for index, (track_number, song) in enumerate(songs_list):\r\n        print(\"{}: {}\".format(index + 1, song))\r\n    \r\n    song_choice = int(input())\r\n    while True:\r\n        if 1 <= song_choice <= len(songs_list):\r\n            title = songs_list[song_choice -1][SONG_TITLE_INDEX]\r\n            break       \r\n        else:\r\n            print(\"Your choice is out of range, please choose carefully\")\r\n            song_choice = int(input())\r\n        \r\n    print(\"Playing {}\".format(title))\r\n    print(\"=\" * 40)\r\n\r\n    \r\n        \r\n\r\n# unpacking in two steps\r\n    # for index, value in enumerate(albums):\r\n    #     title, artists, year, songs = value\r\n    #     print(index,title,artists,year,songs)\r\n    # break\r\n    
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Tupples/jukebox_menu.py b/Tupples/jukebox_menu.py
+--- a/Tupples/jukebox_menu.py	(revision 98b78aa80851fc72c65655f890debb9cd6e2c629)
++++ b/Tupples/jukebox_menu.py	(date 1651237643794)
+@@ -3,9 +3,10 @@
+ SONGS_LIST_INDEX = 3
+ SONG_TITLE_INDEX = 1
+ while True:
+-# unpacking in one step
++    # unpacking in one step
+     print("Please choose your album(invalid choice exits): ")
+-    for index,(title, artist, year, songs) in enumerate(albums):   # the enumerate functiong gives error withou the parenthethesies
++    for index, (title, artist, year, songs) in enumerate(
++            albums):  # to enumerate function gives error without the parenthesizes
+         print("{}: {}".format(index + 1, title))
+     choice = int(input())
+     if choice == 911:
+@@ -14,31 +15,27 @@
+         if 1 <= choice <= len(albums):
+             songs_list = albums[choice - 1][SONGS_LIST_INDEX]
+             break
+-        else: 
++        else:
+             print("Your choice is out of range, please choose carefully")
+             choice = int(input())
+     print("PLease choose your song: ")
+     for index, (track_number, song) in enumerate(songs_list):
+         print("{}: {}".format(index + 1, song))
+-    
++
+     song_choice = int(input())
+     while True:
+         if 1 <= song_choice <= len(songs_list):
+-            title = songs_list[song_choice -1][SONG_TITLE_INDEX]
+-            break       
++            title = songs_list[song_choice - 1][SONG_TITLE_INDEX]
++            break
+         else:
+             print("Your choice is out of range, please choose carefully")
+             song_choice = int(input())
+-        
++
+     print("Playing {}".format(title))
+     print("=" * 40)
+ 
+-    
+-        
+-
+ # unpacking in two steps
+-    # for index, value in enumerate(albums):
+-    #     title, artists, year, songs = value
+-    #     print(index,title,artists,year,songs)
+-    # break
+-    
+\ No newline at end of file
++# for index, value in enumerate(albums):
++#     title, artists, year, songs = value
++#     print(index,title,artists,year,songs)
++# break
+Index: Exercises/animated_graph.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Exercises/animated_graph.py b/Exercises/animated_graph.py
+new file mode 100644
+--- /dev/null	(date 1651524712644)
++++ b/Exercises/animated_graph.py	(date 1651524712644)
+@@ -0,0 +1,27 @@
++import imageio
++import matplotlib.pyplot as plt
++import numpy as np
++
++np.random.seed(0)
++SIZE = 50
++y = np.random.randint(-5, 5, SIZE)
++plt.plot(y)
++plt.ylim(-10, 10)
++
++plt.show()
++
++for i in range(2, SIZE + 1):
++    plt.plot(y[0:i])
++    plt.ylim(-10, 10)
++    plt.savefig(f'line-{i}.png')
++    plt.close()
++
++with imageio.get_writer('line.gif', mode='i') as writer:
++    for i in range(2, SIZE + 1):
++        image = imageio.imread(f'line-{i}.png')
++        writer.append_data(image)
++
++import os
++
++for i in range(2, SIZE + 1):
++    os.remove(f'line-{i}.png')
+\ No newline at end of file
+Index: Exercises/pong_game.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Exercises/pong_game.py b/Exercises/pong_game.py
+new file mode 100644
+--- /dev/null	(date 1651422645820)
++++ b/Exercises/pong_game.py	(date 1651422645820)
+@@ -0,0 +1,125 @@
++import turtle
++
++wn = turtle.Screen()
++wn.title("Pong by @YolbarsZiya")
++wn.bgcolor("black")
++wn.setup(width=800, height=600)
++wn.tracer(0)
++
++# Score
++score_a = 0
++score_b = 0
++
++# Paddle A
++palaq_a = turtle.Turtle()
++palaq_a.speed(0)
++palaq_a.shape("square")
++palaq_a.color("white")
++palaq_a.shapesize(stretch_wid=5, stretch_len=1)
++palaq_a.penup()
++palaq_a.goto(-350, 0)
++
++# Paddle B
++palaq_b = turtle.Turtle()
++palaq_b.speed(0)
++palaq_b.shape("square")
++palaq_b.color("white")
++palaq_b.shapesize(stretch_wid=5, stretch_len=1)
++palaq_b.penup()
++palaq_b.goto(350, 0)
++
++# Ball
++top = turtle.Turtle()
++top.speed(0)
++top.shape("circle")
++top.color("white")
++top.penup()
++top.goto(0, 0)
++top.dx = 0.1
++top.dy = -0.11
++
++# Pen
++pen = turtle.Turtle()
++pen.speed(0)
++pen.color("white")
++pen.penup()
++pen.hideturtle()
++pen.goto(0, 260)
++pen.write("Player A : 0  Player B :", align="center", font=("Courier", 20, "normal"))
++
++
++# Functions
++def palaq_a_up():
++    y = palaq_a.ycor()
++    y += 20
++    palaq_a.sety(y)
++
++
++def palaq_a_down():
++    y = palaq_a.ycor()
++    y -= 20
++    palaq_a.sety(y)
++
++
++def palaq_b_up():
++    y = palaq_b.ycor()
++    y += 20
++    palaq_b.sety(y)
++
++
++def palaq_b_down():
++    y = palaq_b.ycor()
++    y -= 20
++    palaq_b.sety(y)
++
++
++# Keyboard binding
++wn.listen()
++wn.onkeypress(palaq_a_up, "w")
++wn.onkeypress(palaq_a_down, "s")
++wn.onkeypress(palaq_b_up, "Up")
++wn.onkeypress(palaq_b_down, "Down")
++
++# Main game loop
++while True:
++    wn.update()
++
++    # Move the top
++    top.setx(top.xcor() + top.dx)
++    top.sety(top.ycor() + top.dy)
++
++    # Boarder checking
++    if top.ycor() > 290:
++        top.sety(290)
++        top.dy *= -1
++
++    if top.ycor() < -290:
++        top.sety(-290)
++        top.dy *= -1
++
++    if top.xcor() > 390:
++        top.goto(0, 0)
++        top.dx *= -1
++        score_a += 1
++        pen.clear()
++        pen.write("Player A : {}  Player B : {}".format(score_a, score_b), align="center", font=("Courier", 30, "bold"))
++
++    if top.xcor() < -390:
++        top.goto(0, 0)
++        top.dx *= -1
++        score_b += 1
++        pen.clear()
++        pen.write("Player A : {}  Player B : {}".format(score_a, score_b), align="center", font=("Courier", 30, "bold"))
++
++    # Paddle and ball collisions
++    for i in range(0, 390):
++
++        if (340 < top.xcor() < 350) and (
++                palaq_b.ycor() + 50 > top.ycor() > palaq_b.ycor() - 50):
++            top.setx(340)
++            top.dx *= -1
++
++        if (-340 > top.xcor() > -350) and (
++                palaq_a.ycor() + 50 > top.ycor() > palaq_a.ycor() - 50):
++            top.setx(-340)
++            top.dx *= -1
+Index: .idea/inspectionProfiles/profiles_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/profiles_settings.xml b/.idea/inspectionProfiles/profiles_settings.xml
+new file mode 100644
+--- /dev/null	(date 1650995481530)
++++ b/.idea/inspectionProfiles/profiles_settings.xml	(date 1650995481530)
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <settings>
++    <option name="USE_PROJECT_PROFILE" value="false" />
++    <version value="1.0" />
++  </settings>
++</component>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1650995481540)
++++ b/.idea/vcs.xml	(date 1650995481540)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1650995481547)
++++ b/.idea/.gitignore	(date 1650995481547)
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: .idea/My_Python_journy.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/My_Python_journy.iml b/.idea/My_Python_journy.iml
+new file mode 100644
+--- /dev/null	(date 1650995481554)
++++ b/.idea/My_Python_journy.iml	(date 1650995481554)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/py_charm_env" />
++    </content>
++    <orderEntry type="jdk" jdkName="Python 3.10 (py_charm_env)" jdkType="Python SDK" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++  <component name="PyDocumentationSettings">
++    <option name="format" value="GOOGLE" />
++    <option name="myDocStringFormat" value="Google" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1650995481562)
++++ b/.idea/modules.xml	(date 1650995481562)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/My_Python_journy.iml" filepath="$PROJECT_DIR$/.idea/My_Python_journy.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1650995481568)
++++ b/.idea/misc.xml	(date 1650995481568)
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (py_charm_env)" project-jdk-type="Python SDK" />
++</project>
+\ No newline at end of file
+Index: guessing_game.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"\"\"The infinite guessing game\"\"\"\r\nimport random\r\n\r\nhighest = 10\r\nanswer = random.randint(1,highest)\r\nprint(answer) # TODO: Remove after testing\r\nprint(\"Please guess number between 1 and {}: \".format(highest))\r\nguess = int(input())\r\n\"\"\"The infinite guess game :D\"\"\"   \r\nif guess == answer:\r\n    print(\"You have got the correct answer, boiiiii\")\r\nwhile guess != answer:\r\n    if guess < answer:\r\n        print(\"Please guess higher\")\r\n    elif guess > answer:\r\n        print(\"Please guess lower\")\r\n    guess = int(input())\r\n    if guess == answer:\r\n        print(\"Good job Rambo\")\r\n    elif guess == 0:\r\n        print(\"Game  over\")\r\n        break\r\n\r\n# if guess != answer:\r\n#     if guess < answer:\r\n#         print(\"Please guess higher\")\r\n#     else:\r\n#         print(\"Please guess lower\")\r\n#     guess = int(input())\r\n#     if guess == answer:\r\n#         print(\"Well done, you guessed it \")\r\n#     else:\r\n#         print(\"Sorry, you have not guessed correctly\")\r\n# else:\r\n#     print(\"You got it first time!\")\r\n \r\n    \r\n# Given challenge\r\n# if guess == answer:\r\n#     print(\"You have got it first time\")\r\n# else:\r\n#     if guess > answer:\r\n#         print(\"Please guess lower\")\r\n#     else:\r\n#         print(\"Please guess higher\")\r\n#     guess = int(input())\r\n#     if guess == answer:\r\n#         print(\"Now you have got it\")\r\n#     else:\r\n#         print(\"Go get some milk boiii\")\r\n\r\n\r\n# if guess < answer :\r\n#     print(\"Please guess higher\")\r\n#     guess = int(input())\r\n#     if guess == answer:\r\n#         print(\"Well done, you guessed it\")\r\n#     else:\r\n#         print(\"Sorry you have failed\")\r\n# elif guess > answer :\r\n#     print(\"Please guess lower\")\r\n#     if guess == answer:\r\n#         print(\"Well done, you guessed it\")\r\n#     else:\r\n#         print(\"Mission failed, try again next time :D\")\r\n# else:\r\n#     print(\"You got it first time ;D\")\r\n    \r\n 
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/guessing_game.py b/guessing_game.py
+--- a/guessing_game.py	(revision 98b78aa80851fc72c65655f890debb9cd6e2c629)
++++ b/guessing_game.py	(date 1651237675592)
+@@ -2,11 +2,11 @@
+ import random
+ 
+ highest = 10
+-answer = random.randint(1,highest)
+-print(answer) # TODO: Remove after testing
++answer = random.randint(1, highest)
++print(answer)  # TODO: Remove after testing
+ print("Please guess number between 1 and {}: ".format(highest))
+ guess = int(input())
+-"""The infinite guess game :D"""   
++"""The infinite guess game :D"""
+ if guess == answer:
+     print("You have got the correct answer, boiiiii")
+ while guess != answer:
+@@ -33,8 +33,8 @@
+ #         print("Sorry, you have not guessed correctly")
+ # else:
+ #     print("You got it first time!")
+- 
+-    
++
++
+ # Given challenge
+ # if guess == answer:
+ #     print("You have got it first time")
+@@ -65,5 +65,3 @@
+ #         print("Mission failed, try again next time :D")
+ # else:
+ #     print("You got it first time ;D")
+-    
+- 
+\ No newline at end of file
