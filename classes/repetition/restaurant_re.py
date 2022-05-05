@@ -6,8 +6,8 @@ class Restaurant:
         
     def describe_restaurant(self):
         """ Describe the restaurant"""
-        discrition = f"{self.name} serves wonderful {self.cuisine_type} cuisine"
-        print(f"{discrition}")
+        description = f"{self.name} serves wonderful {self.cuisine_type} cuisine"
+        print(f"{description}")
         
     def open_restaurant(self):
         """ Invites the guests in"""

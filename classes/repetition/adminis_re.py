@@ -31,7 +31,7 @@ class Privileges:
 
 
 class Admin(User):
-    """ An representation of the admin class"""
+    """ A representation of the admin class"""
 
     def __init__(self, first_name, last_name, username, email, location):
         """ Initialize the class"""

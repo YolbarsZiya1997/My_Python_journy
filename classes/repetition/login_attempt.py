@@ -17,7 +17,7 @@ class User:
     def greet_user(self):
         print(f"\nHello {self.username}, welcome back")
         
-    def increment_logint_attempts(self):
+    def increment_login_attempts(self):
         self.login_attempts += 1
         
     def reset_login_attempts(self):
@@ -25,9 +25,9 @@ class User:
         
     
 ziya = User("Ziya", "Alim", "Şungkar", "ziyabay135@gmail.com", "Zeytinburnu")
-ziya.increment_logint_attempts()
-ziya.increment_logint_attempts()
-ziya.increment_logint_attempts()
+ziya.increment_login_attempts()
+ziya.increment_login_attempts()
+ziya.increment_login_attempts()
 print(f"Total login attempts are: {ziya.login_attempts}")
 
 ziya.reset_login_attempts()
