@@ -1,0 +1,6 @@
+In Python you can write wonderful games 
+In Python you can do machine learning and deep learning projects
+In Python you can do data analysis
+In Python you can also write quick scripts
+In Python you can use the turtle package to write interesting shapes
+In Python you can do almost everything
